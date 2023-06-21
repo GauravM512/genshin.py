@@ -78,7 +78,7 @@ class DailyRewardClient(base.BaseClient):
 
         if challenge:
             headers["x-rpc-challenge"] = challenge["challenge"]
-            headers["x-rpc-seccode"] = challenge["seccode"]
+            headers["x-rpc-seccode"] = f"{challenge['seccode']}|jordan"
             headers["x-rpc-validate"] = challenge["validate"]
 
         return await self.request(url, method=method, params=params, headers=headers, **kwargs)
